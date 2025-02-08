@@ -18,8 +18,6 @@ function App() {
       .finally(() => setLoading(false));
   }, [dispatch]);
 
-
-
   return !loading ? (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <header className="shadow-sm bg-white">
