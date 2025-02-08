@@ -21,8 +21,8 @@ const Signup = () => {
         const userData = await authService.getCurrentUser();
         if(userData){
           dispatch(login(userData));
+          navigate('/');
         }
-        navigate('/');
       }
     } catch (error) {
       console.log(error);
@@ -31,6 +31,7 @@ const Signup = () => {
 
   }
 
+ 
   return (
     <div className='flex items-center justify-center w-full'>
       <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
@@ -45,20 +46,20 @@ const Signup = () => {
           <div className="space-y-5">
             <Input
               label="Name: "
-            type="text"
-            placeholder="Enter your name"
-            {...register("name", {
-              required: true,
-              minLength: {
-                value: 3,
-                message: "Name must be at least 3 characters long",
-              },
-              maxLength: {
-                value: 20,
-                message: "Name must be at most 20 characters long",
-              },
-            })}
-          />
+              type="text"
+              placeholder="Enter your name"
+              {...register("name", {
+                required: true,
+                minLength: {
+                  value: 3,
+                  message: "Name must be at least 3 characters long",
+                },
+                maxLength: {
+                  value: 20,
+                  message: "Name must be at most 20 characters long",
+                },
+              })}
+            />
           {errors.name && <p className='text-red-600 mt-8 text-center'>{errors.name.message}</p>}
           <Input
             label="Email: "

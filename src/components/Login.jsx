@@ -23,11 +23,11 @@ const Login = () => {
         const userData = await authService.getCurrentUser();
         if(userData) {
           dispatch(authLogin(userData));
-      }
-      navigate('/');
-    }
-    } catch (error) {
-      setError(error.message);
+          navigate('/');
+        }
+      } 
+    }catch (error) {
+      setError(error.message); 
     }
   }
 

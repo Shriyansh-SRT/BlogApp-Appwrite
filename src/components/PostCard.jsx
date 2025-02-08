@@ -1,19 +1,26 @@
 import React from 'react'
-import service from '../appwrite/config'
 import {Link} from "react-router-dom"
+import service from "../appwrite/config.js"
 
-const PostCard = ({$id, title, featuredImage, content}) => {
+
+function PostCard({
+    $id, title, featuredImage
+}) {
   return (
     <Link to={`/post/${$id}`}>
-      <div className='w-full bg-gray-400 rounded-xl'>
-        <div className='relative inline-block h-auto w-full overflow-hidden rounded-xl bg-cover bg-center' 
-        style={{backgroundImage: `url(${service.getFilePreview(featuredImage, 300, 200)})`}}>
-          <span className='absolute right-2 bottom-2 inline-flex rounded-full bg-black px-2 py-1 text-xs font-semibold uppercase leading-none text-white'>
-            {content}
-          </span>
+        <div
+        className='w-full bg-gray-100 rounded-xl p-4'
+        >
+            <div
+            className='w-full justify-center mb-4'
+            >
+                <img src={service.getFilePreview(featuredImage)} alt={title}
+                className='rounded-xl'
+                />
+
+            </div>
+            <h2 className='text-xl font-bold'>{title}</h2>
         </div>
-        <h2 className='text-center text-xl font-bold'>{title}</h2>
-      </div>
     </Link>
   )
 }

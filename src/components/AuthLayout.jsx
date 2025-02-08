@@ -21,7 +21,7 @@ const Protected = ({children, authentication = true}) => {
   }, [authStatus, navigate, authentication])
 
   return (
-    loader ? <div>Loading...</div> : children  
+    loader ? <div>Loading...</div> : {children}  
   )
 }
 
