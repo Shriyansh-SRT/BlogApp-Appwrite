@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import {Button, Input, RTE, Select} from "../index"
 import appwriteService from '../../appwrite/config'
-import { use } from 'react'
 
 const postForm = ({post}) => {
 
@@ -38,6 +37,7 @@ const postForm = ({post}) => {
         if(dbPost){
           navigate(`/post/${dbPost.$id}`)
         }
+
       }else{
         const file = data.image[0] ? appwriteService.uploadFile(data.image[0]) : null
 
@@ -55,7 +55,7 @@ const postForm = ({post}) => {
       }
     }
 
-    const slugTransform = ((value) => {
+    const slugTransform = useCallback((value) => {
       if(value && typeof value === "string"){
         return value
         .trim()

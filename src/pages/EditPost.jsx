@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 const EditPost = () => {
 
-  const [posts, setPosts] = useState(null)
+  const [post, setPosts] = useState(null)
   const {slug} = useParams()
   const navigate = useNavigate()
 
@@ -23,10 +23,10 @@ const EditPost = () => {
   }, [slug, navigate])
 
   return (
-    posts ? (
+    post ? (
     <div className='py-8'>
       <Container>
-        <PostForm post={posts} />
+        <PostForm post={post} />
       </Container>
     </div>
   ) : null)

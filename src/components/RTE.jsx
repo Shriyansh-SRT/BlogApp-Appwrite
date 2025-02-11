@@ -6,7 +6,6 @@ const RTE = ({name, control, label, defaultValue=""}) => {
   return (
     <div className='w-full'>
       {label && <label className='block text-sm font-medium text-gray-700' htmlFor={name}>{label}</label>}
- 
       <Controller
        name={name || "content"}
        control={control}
